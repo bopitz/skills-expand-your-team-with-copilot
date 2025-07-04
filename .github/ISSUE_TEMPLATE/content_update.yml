@@ -1,0 +1,150 @@
+name: 📝 Content Update
+description: Request updates to activities, descriptions, or other content in the system
+title: "[CONTENT] "
+labels: ["content", "teacher-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request changes to activity information, descriptions, schedules, or other content.
+        
+        **This template is designed for teachers to easily request content updates.**
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: "What type of content needs to be updated?"
+      options:
+        - Activity information (name, description, schedule)
+        - Add new activities
+        - Remove/archive old activities
+        - Update activity requirements or prerequisites
+        - Change activity locations or meeting times
+        - Update teacher/supervisor information
+        - Modify signup instructions or forms
+        - Other content (please specify below)
+    validations:
+      required: true
+
+  - type: input
+    id: activity_name
+    attributes:
+      label: "Which activity is this about?"
+      description: "If this relates to a specific activity, please name it"
+      placeholder: "Example: Basketball, Drama Club, Student Council"
+
+  - type: textarea
+    id: current_content
+    attributes:
+      label: "What is the current content?"
+      description: "Copy/paste or describe the current information that needs to be changed"
+      placeholder: |
+        Example: 
+        Current description: "Basketball team practices on Tuesdays and Thursdays"
+        Current time: "3:30 PM - 5:00 PM"
+    validations:
+      required: true
+
+  - type: textarea
+    id: new_content
+    attributes:
+      label: "What should the new content be?"
+      description: "Provide the exact new information that should replace the current content"
+      placeholder: |
+        Example:
+        New description: "Basketball team practices on Mondays, Wednesdays, and Fridays"
+        New time: "3:30 PM - 5:30 PM"
+        New location: "Main gymnasium (changed from auxiliary gym)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: timing
+    attributes:
+      label: "When does this change need to take effect?"
+      options:
+        - Immediately - As soon as possible
+        - Specific date (please specify below)
+        - Beginning of next semester
+        - Beginning of next school year
+        - When convenient for development team
+    validations:
+      required: true
+
+  - type: input
+    id: specific_date
+    attributes:
+      label: "Specific date (if applicable)"
+      description: "If you selected 'Specific date' above, please provide the date"
+      placeholder: "Example: January 15, 2024"
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: "Reason for the change"
+      description: "Help us understand why this content needs to be updated"
+      placeholder: "Example: Schedule changed due to gym renovation, or activity supervisor changed"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: "Who needs to be notified about this change?"
+      options:
+        - Students already signed up for this activity
+        - All students (school-wide announcement)
+        - Other teachers/staff
+        - Parents/guardians
+        - No notification needed
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: approval
+    attributes:
+      label: "Approval information"
+      description: "Has this change been approved? By whom?"
+      placeholder: "Example: Approved by Principal Smith, or Still waiting for approval from Athletic Director"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "Additional details"
+      description: "Any other information that would help implement this content change"
+      placeholder: "Example: Please also update the printed flyers with the new information"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers/AI Agents:**
+        
+        **Acceptance Criteria:**
+        - [ ] Update the specified content exactly as requested above
+        - [ ] Verify changes display correctly on both desktop and mobile
+        - [ ] Ensure updated content is properly formatted and readable
+        - [ ] Check that changes don't break existing functionality
+        - [ ] Test that all related pages/sections reflect the updates
+        - [ ] Confirm timing requirements are met
+        
+        **Implementation Hints:**
+        - Content is likely stored in `src/backend/database.py` as sample data
+        - Check activity models and data structures in backend code
+        - Update frontend display in `src/static/index.html` and related files
+        - Consider if changes affect API responses in `src/backend/routers/`
+        - Verify changes appear correctly in activity listings and detail views
+        - Ensure proper data validation for new content
+        
+        **Context & Limitations:**
+        - Content should be appropriate for high school environment
+        - Keep descriptions clear and concise for student readability
+        - Maintain consistent formatting with existing content
+        - Consider impact on students who have already signed up
+        - Ensure changes align with school policies and schedules
+        - Verify accuracy of dates, times, and location information
+        - Content should be accessible to students with diverse reading levels
