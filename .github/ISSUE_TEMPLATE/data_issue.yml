@@ -1,0 +1,197 @@
+name: 📊 Data Issue
+description: Report problems with student data, activity information, or data management
+title: "[DATA] "
+labels: ["data", "teacher-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to report issues with student information, activity data, or data management problems.
+        
+        **This template helps teachers report data-related issues safely and clearly.**
+
+  - type: dropdown
+    id: data_type
+    attributes:
+      label: "What type of data issue is this?"
+      options:
+        - Student signup information is incorrect
+        - Activity information is wrong or outdated
+        - Missing student records or signups
+        - Duplicate or conflicting entries
+        - Data export/import problems
+        - Student cannot access their information
+        - Data appears to be lost or missing
+        - Privacy/security concern with data access
+        - Other data integrity issue
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "How urgent is this data issue?"
+      options:
+        - Critical - Data loss or security issue, needs immediate attention
+        - High - Affects many students or important operations
+        - Medium - Affects some students or specific activities
+        - Low - Minor data inconsistency or cosmetic issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe the data problem"
+      description: "Explain what data is wrong, missing, or causing problems"
+      placeholder: |
+        Example:
+        - John Smith shows as signed up for Basketball but he's actually in Drama Club
+        - The Chess Club shows 15 members but only 8 students are actually participating
+        - Students can't see their signup history from last semester
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: "How many students/records are affected?"
+      options:
+        - Just one student
+        - A few students (2-10)
+        - Many students (10-50)
+        - Most/all students in an activity
+        - School-wide issue
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_examples
+    attributes:
+      label: "Specific examples"
+      description: "Provide specific student names, activity names, or other details (avoid sensitive information)"
+      placeholder: |
+        Example:
+        - Student: Sarah Johnson, Activity: Soccer, Issue: Shows as signed up but never joined
+        - Activity: Art Club, Issue: Roster shows outdated teacher name
+        - Multiple students report they can't see their current signups
+        
+        Note: Only include information that's appropriate to share
+    validations:
+      required: true
+
+  - type: textarea
+    id: when_noticed
+    attributes:
+      label: "When did you first notice this issue?"
+      description: "Help us understand the timeline of when this problem started"
+      placeholder: |
+        Example:
+        - Started noticing yesterday when taking attendance
+        - Has been wrong since the beginning of the semester
+        - Just discovered it today when a parent called
+        - Seems to have happened after the system update last week
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: "How does this affect school operations?"
+      options:
+        - Prevents taking accurate attendance
+        - Causes confusion for students/parents
+        - Affects activity planning or resources
+        - Impacts reporting to administration
+        - Creates safety/supervision concerns
+        - No immediate operational impact
+        - Other (please describe below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: correct_data
+    attributes:
+      label: "What should the correct data be?"
+      description: "If you know what the data should be, please provide the correct information"
+      placeholder: |
+        Example:
+        - Sarah Johnson should NOT be in Soccer roster
+        - Chess Club should show 8 members, not 15
+        - Art Club teacher should be Ms. Garcia, not Mr. Peterson
+    validations:
+      required: true
+
+  - type: dropdown
+    id: privacy_concern
+    attributes:
+      label: "Is this a privacy or security concern?"
+      options:
+        - No privacy issues
+        - Students can see other students' private information
+        - Data might be visible to wrong people
+        - Concerned about data being lost or stolen
+        - Not sure, but it might be
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: "How can we verify the correct information?"
+      description: "What sources can we use to confirm the correct data?"
+      placeholder: |
+        Example:
+        - Check with the Physical Education department for current sports rosters
+        - Cross-reference with paper signup sheets from activity fair
+        - Verify with students directly during class
+        - Compare with previous semester's records
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "Additional context"
+      description: "Any other information that might help us understand and fix this data issue"
+      placeholder: "Example: This might be related to the recent activity fair when many students changed their signups"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers/AI Agents:**
+        
+        **Acceptance Criteria:**
+        - [ ] Investigate and identify the root cause of the data issue
+        - [ ] Correct the specific data problems described above
+        - [ ] Implement safeguards to prevent similar issues in the future
+        - [ ] Verify data integrity across related records
+        - [ ] Test that corrections don't introduce new inconsistencies
+        - [ ] Document the fix if it affects system procedures
+        
+        **Implementation Hints:**
+        - Check database records in `src/backend/database.py`
+        - Review data models and relationships in backend code
+        - Examine API endpoints in `src/backend/routers/` for data handling
+        - Check for race conditions or validation issues
+        - Verify data persistence and backup procedures
+        - Test data operations with typical user workflows
+        
+        **Data Safety Considerations:**
+        - Always backup data before making corrections
+        - Verify changes don't affect other students or activities
+        - Ensure user privacy is maintained during investigation
+        - Consider impact on historical records and reporting
+        - Test data validation rules to prevent future issues
+        - Document data correction procedures for future reference
+        
+        **Context & Limitations:**
+        - Student data privacy is paramount - handle with care
+        - Changes may affect attendance tracking and school reporting
+        - Consider impact on both current and historical records
+        - Verify with school policies for data handling and retention
+        - Ensure corrections are transparent and auditable
+        - Test thoroughly in development before applying to production data

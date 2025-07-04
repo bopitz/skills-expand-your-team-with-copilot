@@ -1,0 +1,129 @@
+name: ✨ Feature Request
+description: Request a new feature or enhancement for the High School Management System
+title: "[FEATURE] "
+labels: ["enhancement", "teacher-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a new feature! Please describe your idea as completely as possible.
+        
+        **This template helps teachers request new functionality without technical knowledge.**
+
+  - type: input
+    id: feature_title
+    attributes:
+      label: "What new feature would you like?"
+      description: "Give your feature request a clear, descriptive title"
+      placeholder: "Example: Add ability to set maximum capacity for each activity"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What problem does this solve?"
+      description: "Describe the current limitation or challenge you're facing"
+      placeholder: "Example: Right now we can't limit how many students sign up for activities, so some get overcrowded while others have too few participants"
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "How would you like this to work?"
+      description: "Describe in detail how you envision this feature working from a user's perspective"
+      placeholder: |
+        Example: 
+        1. As a teacher, I should be able to set a maximum number of students for each activity
+        2. When students try to sign up, they should see how many spots are available
+        3. If an activity is full, students should be put on a waiting list
+        4. Teachers should get notified when activities reach capacity
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_type
+    attributes:
+      label: "Who would use this feature?"
+      options:
+        - Students only
+        - Teachers only
+        - Both students and teachers
+        - School administrators
+        - Parents/guardians
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "How important is this feature?"
+      options:
+        - Critical - Essential for school operations, needed ASAP
+        - High - Would significantly improve how we use the system
+        - Medium - Nice to have, would make things easier
+        - Low - Minor improvement or convenience feature
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "What are the benefits?"
+      description: "Explain how this feature would improve the experience for students, teachers, or school operations"
+      placeholder: "Example: This would help ensure fair distribution of students across activities and prevent overcrowding in popular activities"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Current workarounds"
+      description: "How do you handle this situation now? What doesn't work well about current approaches?"
+      placeholder: "Example: Currently we manually track signups in a spreadsheet and have to turn students away in person"
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: "Examples or mockups"
+      description: "If you have ideas for how this should look or work, describe them here or provide links to examples"
+      placeholder: "Example: Similar to how event registration works on Eventbrite where you can see '15 spots remaining'"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "Additional context"
+      description: "Any other information that would help us understand your request"
+      placeholder: "Example: This is especially important during sports seasons when activities are most popular"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers/AI Agents:**
+        
+        **Acceptance Criteria:**
+        - [ ] Implement the requested feature as described above
+        - [ ] Create intuitive user interface that non-technical users can easily understand
+        - [ ] Ensure feature works seamlessly with existing functionality
+        - [ ] Add appropriate validation and error handling
+        - [ ] Test feature with typical user workflows
+        - [ ] Update any relevant documentation
+        
+        **Implementation Hints:**
+        - Consider database schema changes in `src/backend/database.py`
+        - Update FastAPI endpoints in `src/backend/routers/`
+        - Modify frontend UI in `src/static/index.html` and `src/static/app.js`
+        - Ensure responsive design works on mobile devices
+        - Add proper form validation and user feedback
+        - Consider email notifications if applicable
+        
+        **Context & Limitations:**
+        - Target users are high school students (ages 14-18) and teachers
+        - Interface should be simple and intuitive for non-technical users
+        - Performance should remain good even with 500+ students
+        - Feature should align with typical high school workflows and policies
+        - Consider accessibility requirements for diverse user needs
+        - Maintain consistent visual design with existing system

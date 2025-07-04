@@ -1,0 +1,118 @@
+name: 🐛 Bug Report
+description: Report a problem with the High School Management System
+title: "[BUG] "
+labels: ["bug", "teacher-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out this form as completely as possible.
+        
+        **This template is designed for teachers to easily report issues without technical knowledge.**
+
+  - type: input
+    id: summary
+    attributes:
+      label: "What is not working?"
+      description: "Briefly describe what you expected to happen vs what actually happened"
+      placeholder: "Example: Students can't sign up for Basketball - the signup button doesn't work"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to reproduce the problem"
+      description: "Tell us exactly what you did when you encountered this issue"
+      placeholder: |
+        1. I went to the activities page
+        2. I clicked on Basketball
+        3. I tried to click the signup button
+        4. Nothing happened
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: "Which part of the system has the problem?"
+      options:
+        - Student signup process
+        - Activity listings/display
+        - Teacher activity management
+        - Student data/information
+        - Website loading/performance
+        - Login/authentication
+        - Other (please describe below)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "How urgent is this issue?"
+      options:
+        - Critical - System is completely broken, students can't use it at all
+        - High - Major feature isn't working, affecting many students
+        - Medium - Some functionality is broken but workarounds exist
+        - Low - Minor issue that doesn't significantly impact usage
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Who is affected and how?"
+      description: "Describe how this impacts students, teachers, or school operations"
+      placeholder: "Example: All students trying to sign up for sports activities are unable to register, affecting 200+ students"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "What should happen instead?"
+      description: "Describe the correct behavior you expect to see"
+      placeholder: "Example: When students click the signup button, they should be registered for the activity and see a confirmation message"
+    validations:
+      required: true
+
+  - type: textarea
+    id: browser_info
+    attributes:
+      label: "Technical Information (if known)"
+      description: "If you know, please share what browser/device you're using"
+      placeholder: "Example: Chrome browser on Windows laptop, or Safari on iPad"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "Additional context"
+      description: "Any other information that might help us understand and fix the problem"
+      placeholder: "Example: This started happening after we added new activities last week"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers/AI Agents:**
+        
+        **Acceptance Criteria:**
+        - [ ] Identify and fix the root cause of the reported issue
+        - [ ] Ensure the fix doesn't break existing functionality
+        - [ ] Test the fix with the exact steps provided above
+        - [ ] Verify the solution works across common browsers (Chrome, Firefox, Safari)
+        
+        **Hints for Implementation:**
+        - Check FastAPI backend endpoints for the affected functionality
+        - Review JavaScript event handlers in `src/static/app.js`
+        - Examine HTML forms and buttons in `src/static/index.html`
+        - Test database connections and data persistence in `src/backend/`
+        - Consider browser console errors and network requests
+        
+        **Context & Limitations:**
+        - This is an educational system used by high school students and teachers
+        - Changes should maintain simple, intuitive user interface
+        - Avoid breaking changes that would require user retraining
+        - Consider accessibility for users with different technical skill levels

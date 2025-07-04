@@ -1,0 +1,174 @@
+name: 🎨 UI/UX Improvement
+description: Request improvements to the user interface or user experience
+title: "[UI/UX] "
+labels: ["ui/ux", "teacher-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to request improvements to how the system looks or works from a user's perspective.
+        
+        **This template helps teachers report usability issues without technical jargon.**
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: "What type of improvement is needed?"
+      options:
+        - Hard to find or use a feature
+        - Text is too small or hard to read
+        - Buttons or links don't look clickable
+        - Page is confusing or cluttered
+        - Mobile/tablet experience issues
+        - Accessibility improvements
+        - Visual design improvements
+        - Workflow or process improvements
+        - Other usability issue
+    validations:
+      required: true
+
+  - type: input
+    id: page_location
+    attributes:
+      label: "Where in the system is this issue?"
+      description: "Which page or section needs improvement?"
+      placeholder: "Example: Main activities page, signup form, student profile area"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: "What is difficult or confusing right now?"
+      description: "Describe the current user experience issue in detail"
+      placeholder: |
+        Example: 
+        - Students keep clicking on activity titles thinking they'll sign up, but nothing happens
+        - The signup button is too small and students miss it
+        - On mobile phones, the activity list is hard to scroll through
+    validations:
+      required: true
+
+  - type: dropdown
+    id: affected_users
+    attributes:
+      label: "Who has trouble with this?"
+      options:
+        - Students
+        - Teachers
+        - Both students and teachers
+        - Mobile/tablet users specifically
+        - Users with accessibility needs
+        - New users who are unfamiliar with the system
+    validations:
+      required: true
+
+  - type: textarea
+    id: desired_improvement
+    attributes:
+      label: "How should this work instead?"
+      description: "Describe your ideal user experience for this situation"
+      placeholder: |
+        Example:
+        - Make signup buttons larger and more obvious
+        - Add clear labels like "Click here to join"
+        - Show activity details when you click the title
+        - Make the mobile view easier to navigate
+    validations:
+      required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: "How often does this cause problems?"
+      options:
+        - Every time someone tries to use this feature
+        - Several times per week
+        - Occasionally, but it's frustrating when it happens
+        - Only in specific situations
+        - Not sure, but I've noticed it multiple times
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: "Specific examples or situations"
+      description: "Share specific instances when this caused confusion or problems"
+      placeholder: |
+        Example:
+        - During activity fair, students couldn't figure out how to sign up on their phones
+        - New transfer student spent 10 minutes looking for the signup button
+        - Parent trying to help their child couldn't find where to see activity details
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "How much does this impact daily use?"
+      options:
+        - Major - Prevents people from completing important tasks
+        - Moderate - Causes frustration but people can figure it out
+        - Minor - Small improvement that would be nice to have
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestions
+    attributes:
+      label: "Ideas for improvement"
+      description: "If you have specific ideas for how to make this better, share them here"
+      placeholder: |
+        Example:
+        - Use different colors to make buttons stand out more
+        - Add icons next to text to make things clearer
+        - Reorganize the page layout to be less cluttered
+        - Add help text or tooltips for confusing areas
+
+  - type: textarea
+    id: similar_examples
+    attributes:
+      label: "Good examples from other websites/apps"
+      description: "Are there other websites or apps that handle this well? How do they do it?"
+      placeholder: "Example: Like how Amazon makes their 'Add to Cart' button really obvious, or how Instagram makes it easy to see photo details"
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **For Developers/AI Agents:**
+        
+        **Acceptance Criteria:**
+        - [ ] Address the specific usability issue described above
+        - [ ] Improve user experience for the affected user group
+        - [ ] Ensure changes work well on both desktop and mobile devices
+        - [ ] Maintain consistency with overall design system
+        - [ ] Test improvements with typical user workflows
+        - [ ] Verify accessibility standards are met or improved
+        
+        **Implementation Hints:**
+        - Focus on `src/static/index.html` for HTML structure improvements
+        - Update `src/static/styles.css` for visual design changes
+        - Modify `src/static/app.js` for interaction improvements
+        - Consider responsive design breakpoints for mobile optimization
+        - Use semantic HTML elements for better accessibility
+        - Test with browser developer tools for mobile simulation
+        - Consider color contrast ratios for accessibility
+        
+        **UX Design Principles:**
+        - Keep interfaces simple and intuitive for teenage users
+        - Use clear, action-oriented language for buttons and labels
+        - Ensure important actions are visually prominent
+        - Provide immediate feedback for user actions
+        - Design for touch interfaces on mobile devices
+        - Consider users with varying technical comfort levels
+        - Maintain consistency with common web UI patterns
+        
+        **Context & Limitations:**
+        - Target users are high school students (ages 14-18) and teachers
+        - System is used on various devices: phones, tablets, laptops
+        - Consider accessibility requirements (screen readers, keyboard navigation)
+        - Changes should not require user training or documentation updates
+        - Maintain professional appearance appropriate for educational environment
