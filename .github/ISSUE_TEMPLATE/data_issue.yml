@@ -172,13 +172,13 @@ body:
         - [ ] Test that corrections don't introduce new inconsistencies
         - [ ] Document the fix if it affects system procedures
         
-        **Investigation Steps:**
-        - [ ] Check database records in `src/backend/database.py`
-        - [ ] Review data models and relationships in backend code
-        - [ ] Examine API endpoints in `src/backend/routers/` for data handling
-        - [ ] Check for race conditions or validation issues
-        - [ ] Verify data persistence and backup procedures
-        - [ ] Test data operations with typical user workflows
+        **Implementation Hints:**
+        - Check database records in `src/backend/database.py`
+        - Review data models and relationships in backend code
+        - Examine API endpoints in `src/backend/routers/` for data handling
+        - Check for race conditions or validation issues
+        - Verify data persistence and backup procedures
+        - Test data operations with typical user workflows
         
         **Data Safety Considerations:**
         - Always backup data before making corrections
